@@ -1,0 +1,40 @@
+<div ng-controller="mainPageController as ctrl">
+    <div class="content">
+        <div>
+            <div ng-hide="ctrl.db" class="alert alert-dismissible alert-danger ">
+                <strong></strong> Seems there are no customer`s records in the database <br/>
+                <hr/><a href="#/create" class="alert-link">Add some and try again!</a>
+            </div>
+            <table ng-show="ctrl.db" class="table table-striped ">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Telephone</th>
+                    <th>Address</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                    <th>Choose file</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in ctrl.db">
+                    <td>{{item.name | capitalize}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.telephone}}</td>
+                    <td>{{item.address}}</td>
+                    <td>{{item.street}}</td>
+                    <td>{{item.city}}</td>
+                    <td>{{item.state}}</td>
+                    <td>{{item.zip}}</td>
+                    <td>
+                        <input type="radio"  ng-model="ctrl.tempCheckedFile" ng-change="ctrl.setTempCheckedFile(item)" value="{{item.id}}"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="angular.min.js"></script>
+    <script src="angular-route.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="asside" ng-controller="navigationController as ctrl">
+        <a href="#" class="btn btn-danger">List</a>
+        <a href="" class="btn btn-danger" ng-click="ctrl.updateCustomer()">Update</a>
+        <a href="" class="btn btn-danger" ng-click="ctrl.deleteCustomer()">Delete</a>
+        <a href="#/create" class="btn btn-danger">Create</a>
+    </div>
+    <div ng-view></div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<div class="content createPage" ng-controller="createPageController as ctrl">
+    <form name="userForm" class="form-horizontal" ng-submit="ctrl.fetchResults(userInfo)">
+        <fieldset>
+            <legend>Fill up user`s info</legend>
+            <div class="form-group">
+                <label  class="col-lg-2 control-label" >Enter Name</label>
+                <div class="col-lg-10">
+                    <input required type="text"   class="form-control" name="inputName" placeholder="Name" ng-model="ctrl.userInfo.inputName">
+                    <span ng-show="userForm.inputName.$dirty && userForm.inputName.$invalid">Name is required</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Enter Email</label>
+                <div class="col-lg-10">
+                    <input required type="email" class="form-control" name="inputEmail" placeholder="Email" ng-model="ctrl.userInfo.inputEmail">
+                    <span  ng-show="userForm.inputEmail.$dirty && userForm.inputEmail.$invalid">
+                        <span ng-show="userForm.inputEmail.$error.required">Email is required</span>
+                        <span ng-show="userForm.inputEmail.$error.email">Invalid email address</span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="col-lg-2 control-label">Enter Telephone</label>
+                <div class="col-lg-10">
+                    <input  required   class="form-control" name="inputTelephone" placeholder="Telephone" ng-model="ctrl.userInfo.inputTelephone" >
+                    <span  ng-show="userForm.inputTelephone.$dirty && userForm.inputTelephone.$invalid">
+                        <span ng-show="userForm.inputTelephone.$error.required">
+                          Enter number</span>
+                    </span>
+            </div>
+            </div>
+            <div class="form-group">
+                <label  class="col-lg-2 control-label">Enter Addres</label>
+                <div class="col-lg-10">
+                    <input required type="text" class="form-control" name="inputAddress" placeholder="Address" ng-model="ctrl.userInfo.inputAddress">
+                    <span  ng-show="userForm.inputAddress.$dirty && userForm.inputAddress.$invalid">
+                        <span class="error" ng-show="userForm.inputAddress.$error.required">
+                          Address is required</span>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="col-lg-2 control-label">Enter Street</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputStreet" placeholder="Street" ng-model="ctrl.userInfo.inputStreet">
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="col-lg-2 control-label">Enter City</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputCity" placeholder="City" ng-model="ctrl.userInfo.inputCity">
+                </div>
+            </div>
+            <div class="form-group">
+                <label  class="col-lg-2 control-label">Enter state</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputState" placeholder="State" ng-model="ctrl.userInfo.inputState">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Enter zip</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputZip" placeholder="Zip" ng-model="ctrl.userInfo.inputZip">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="reset" class="btn btn-default"><a href="/">Cancel</a></button>
+                    <button
+                            ng-disabled="
+                        userForm.inputName.$invalid ||
+                        userForm.inputEmail.$invalid ||
+                        userForm.inputAddress.$invalid ||
+                        userForm.inputTelephone.$invalid
+                              "
+                             type="submit" class="btn btn-danger" >Submit</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
